@@ -26,7 +26,7 @@ public class Account {
 	private int accountBalance;
 
 	@Column(name = "user_name")
-	private String user_name;
+	private String userName;
 
 	
 	
@@ -55,11 +55,11 @@ public class Account {
 	}
 
 	public String getUser_name() {
-		return user_name;
+		return userName;
 	}
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUser_name(String userName) {
+		this.userName = userName;
 	}
 	
 	

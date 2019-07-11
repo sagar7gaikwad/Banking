@@ -13,6 +13,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 
 	@Query(value="select * from transaction where from_account=?1",nativeQuery = true)
 	List<Transaction> findByFromAccount(Long accountNumber);
+	
+	
 
 		
 

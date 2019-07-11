@@ -18,8 +18,14 @@ public class RegistrationController {
 	@Autowired
 	RegistrationService registrationService;
 	
+	/**
+	 * This method is used to validate all the fields and register user
+	 * and after user registered random account number is generated, and saved in database
+	 * @param user takes the all parameter from user and bind to entity user
+	 * @return string message displayed saying that User Registered and account number generated
+	 */
 	@PostMapping("/registerUser")
-	public ResponseEntity<?> registerUser(@RequestBody User user){
+	public ResponseEntity<String> registerUser(@RequestBody User user){
 		if(user.getUserName() != null &&
 				user.getUserName() .equals("")  && user.getPassword() .equals("") &&
 				user.getPassword() != null && user.getUserContactNo()!= null &&

@@ -24,6 +24,13 @@ public class LoginService {
 	@Autowired
 	TransactionRepository transactionRepository;
 	
+	
+	/** this method takes username and password from user for validation
+	 * after validation successful returns flag as true and false.
+	 * @param userName takes argument as username from user
+	 * @param password takes argument as password from user
+	 * @return
+	 */
 	public boolean validateUser(String userName, String password) {
 		
 		User testUser = loginRepository.findByUserNameAndPassword(userName,password);
@@ -40,6 +47,13 @@ public class LoginService {
 	}
 
 
+	
+	/**
+	 * This method return the transaction if login is successful.
+	 * @param userName take username from the logged user name to get the account number 
+	 * which is used to get the transaction details
+	 * @return it returns the list of transactions.
+	 */
 	public List<Transaction> getTransactionDetails(String userName) {
 		
 		Account acc = accountRepository.findByUserName(userName);

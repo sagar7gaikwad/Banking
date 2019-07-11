@@ -18,6 +18,13 @@ public class RegistrationService {
 	@Autowired
 	AccountRepository accountRepository;
 
+	
+	/**
+	 * this method takes user from controller and save to database and creates random account number, add 10k balance and
+	 * username for further reference if required to use join query 
+	 * add it into the account db table.
+	 * @param user takes user object from user
+	 */
 	public void registerUser(User user) {
 		
 			//insert data into user table

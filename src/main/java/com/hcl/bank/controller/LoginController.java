@@ -25,8 +25,14 @@ public class LoginController {
 	LoginService loginService;
 	
 
+	/**
+	 * This method is used to validate the username and password send by user
+	 * @param userName get username from user
+	 * @param password get password from user
+	 * @return string weather login successful or not
+	 */
 	@PostMapping("/validate")
-	public ResponseEntity<?>  validateLogin(@RequestParam String userName, @RequestParam String password){
+	public ResponseEntity<String>  validateLogin(@RequestParam String userName, @RequestParam String password){
 		
 		if(loginService.validateUser(userName, password))
 		 {
@@ -42,6 +48,12 @@ public class LoginController {
 		
 	}
 	
+	
+	/**
+	 * This method is used to return the transaction based on username from transaction table
+	 * after login successful
+	 * @return list of transactions based on account number
+	 */
 	@GetMapping("/getDetails/{userName}")
 	public ResponseEntity<List<Transaction>> getTransactionDetails(@PathVariable("userName") String userName) {
 		 return new ResponseEntity<List<Transaction>>(loginService.getTransactionDetails(userName), HttpStatus.OK); 
